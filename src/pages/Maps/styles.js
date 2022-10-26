@@ -11,13 +11,26 @@ export const Container = styled.div`
         margin-top: 1em;
         color: #fff;
     }
-    `;
+
+    .title {
+        width: 100%;
+        margin: 1.5em 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+
+    /* Create a media query for 460px decreasing lateral padding */
+    @media (max-width: 460px) {
+        padding: 0 1em;
+    }
+`;
 
 export const Grid = styled.div`
     width: 100%;
     max-width: 1000px;
     min-height: 100vh;
-    border: 1px solid #fff;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(80px, 180px));
     gap: .2em;
@@ -29,6 +42,10 @@ export const Grid = styled.div`
         flex-direction: column;
         align-items: center;
         color: #fff;
+    }
+
+    @media (max-width: 460px) {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 160px));
     }
 `;
 

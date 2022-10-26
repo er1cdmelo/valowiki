@@ -7,9 +7,19 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
-    h1 {
-        margin-top: 1em;
+    /* Create a media query for 457px */
+    @media (max-width: 457px) {
+        padding: 0 1em;
+    }
+
+    .title {
+        width: 100%;
+        margin: 1.5em 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: #fff;
     }
 `;
@@ -22,6 +32,11 @@ export const Grid = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(80px, 180px));
     gap: .2em;
     justify-content: space-between;
+
+    /* create a media query for 460px decreasing minmax grid repeat */
+    @media (max-width: 460px) {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 160px));
+    }
 
     .card_container {
         height: 250px;

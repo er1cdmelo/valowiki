@@ -24,9 +24,16 @@ export const Container = styled.div`
       z-index: 2;
       display: flex;
       flex-direction: column;
+      position: relative;
+
+        button {
+          top: -1%;
+          left: 0
+        }
 
       .firstInfo {
-        top: 0;
+
+        top: 35px;
         position: relative;
         width: 100%;
         display: flex;
@@ -41,6 +48,11 @@ export const Container = styled.div`
           border-radius: 50%;
           background-color: rgba(255, 255, 255, 0.47);
           margin-right: 1em;
+
+          @media (max-width: 450px) {
+            width: 84px;
+            height: 84px;
+          }
         }
 
         .text {
@@ -82,6 +94,10 @@ export const Container = styled.div`
           border-radius: 15px;
           padding: 2.5em;
           font-size: 1.2em;
+
+          @media (max-width: 450px) {
+            font-size: 1em;
+          }
         }
       }
 
@@ -92,10 +108,13 @@ export const Container = styled.div`
         align-items: center;
         color: #fff;
 
+        h1 {
+          margin: 0.5em;
+        }
+
         .grid {
           width: 100%;
           min-height: 450px;
-          border: 1px solid #fff;
           display: flex;
           justify-content: center;
           gap: 1em;
@@ -113,6 +132,20 @@ export const Container = styled.div`
             background: rgba(34, 34, 34, 0.71);
             border-radius: 15px;
             padding: 1em 0.5em;
+
+            @media (max-width: 700px) {
+              min-height: 350px;
+              max-width: 280px;
+              min-width: 200px;
+
+              font-size: 0.8em;
+            }
+
+            @media (max-width: 550px) {
+              max-width: 100%;
+              min-height: 300px;
+              justify-content: space-evenly;
+            }
           }
         }
       }
@@ -145,6 +178,21 @@ export const Container = styled.div`
         max-width: 80%;
         z-index: 2;
         transform: translateX(20%);
+
+        @media (max-width: 550px) {
+          max-width: 130%;
+        }
+      }
+      @media (max-width: 400px) {
+
+        .bg {
+          max-height: 65vh;
+        }
+
+        .pt {
+          max-width: 200%;
+          transform: translateX(40%)
+        }
       }
     }
   }

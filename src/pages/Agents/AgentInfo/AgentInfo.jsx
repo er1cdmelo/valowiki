@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import BackButton from "../../../components/BackButton/BackButton";
 import { Container, SkillIcon, Wrapper } from "./styles";
 
 const AgentInfo = () => {
   const { id } = useParams();
   const [agent, setAgent] = useState({});
+  const location = useLocation();
+
+  window.scrollTo(0, 0)
 
   useEffect(() => {
     console.log("ok");
@@ -31,6 +35,10 @@ const AgentInfo = () => {
             <img src={agent.fullPortrait} alt="pt" className="pt" />
           </div>
           <div className="main-info">
+          {
+          // if the location is not home, show the back button
+          location.pathname !== "/" ? <BackButton /> : null
+          }
             <div className="firstInfo">
               <img src={agent.displayIcon} alt="icon" />
               <div className="text">
