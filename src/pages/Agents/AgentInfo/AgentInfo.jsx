@@ -2,24 +2,29 @@ import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import BackButton from "../../../components/BackButton/BackButton";
 import { Container, SkillIcon, Wrapper } from "./styles";
+import { selectLanguage } from "../../../redux/langSlice";
+import { useSelector } from "react-redux";
+// import a play icon svg from react-icons
+import { AiOutlinePlayCircle } from "react-icons/ai";
 
 const AgentInfo = () => {
   const { id } = useParams();
   const [agent, setAgent] = useState({});
   const location = useLocation();
+  const language = useSelector(selectLanguage); // get the language from the redux store
 
   window.scrollTo(0, 0)
 
   useEffect(() => {
     console.log("ok");
     if (agent) {
-      fetch(`https://valorant-api.com/v1/agents/${id}?language=pt-BR`)
+      fetch(`https://valorant-api.com/v1/agents/${id}?language=${language}`) // add the language to the fetch url
         .then((res) => res.json())
         .then((data) => {
           data = data.data;
           console.log(data);
-          const voice = new Audio(data.voiceLine.mediaList[0].wave);
-          voice.play();
+          const voice =data.voiceLine.mediaList[0].wave ? new Audio(data.voiceLine.mediaList[0].wave) : null; // create a new Audio object with the voice line url
+          voice && voice.play(); // if the voice line exists, play it
           setAgent(data);
         })
         .catch((err) => console.log(err));
@@ -46,15 +51,21 @@ const AgentInfo = () => {
                 <span>
                   <h3>{agent.role.displayName}</h3>{" "}
                   <img src={agent.role.displayIcon} alt="roleIcon" />
+                <button onClick={() => {
+                  const voice = new Audio(agent.voiceLine.mediaList[0].wave);
+                  voice.play();
+                }} className="play">
+                  <AiOutlinePlayCircle />
+                </button>
                 </span>
               </div>
             </div>
             <section className="description">
-              <h1>DESCRIÇÃO</h1>
+              <h1>DESCRIPTION</h1>
               <p>{agent.description}</p>
             </section>
             <section className="skills">
-              <h1>HABILIDADES</h1>
+              <h1>ABILITIES</h1>
               <div className="grid">
                 {agent.abilities.map((ab) =>
                   ab.displayIcon ? (

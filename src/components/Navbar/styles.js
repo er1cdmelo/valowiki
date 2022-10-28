@@ -6,6 +6,7 @@ export const Nav = styled.header`
     padding: 1em 2em;
     display: flex;
     justify-content: center;
+    align-items: center;
 
     img {
         max-width: 100px;

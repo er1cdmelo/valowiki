@@ -47,7 +47,7 @@ const Home = () => {
         <div className="wrapper">
           {agents.length
             ? agents.map((a, index) =>
-                index < 5 ? (
+                index < 6 ? (
                   <div class="card_container">
                     <Link to={`/agent/${a.uuid}`}>
                       <Card type="agent" className="card">
@@ -66,18 +66,20 @@ const Home = () => {
       </span>
       <Subcontainer>
         <div className="wrapper">
-        {maps.length
-          ? maps.map((m, index) =>
-              index < 5 ? (
-                <div class="card_container">
-                  <Card type="map">
-                    <img src={m.splash} alt="splash" className="splash" />
-                  </Card>
-                  <h3>{m.displayName}</h3>
-                </div>
-              ) : null
-            )
-          : null}
+          {maps.length
+            ? maps.map((m, index) =>
+                index < 6 ? (
+                  <div class="card_container">
+                    <Link to={`/map/${m.uuid}`}>
+                      <Card type="map" className="card" id='mapCard'>
+                        <img src={m.splash} alt="splash" className="mapImg" />
+                      </Card>
+                      <h3>{m.displayName}</h3>
+                    </Link>
+                  </div>
+                ) : null
+              )
+            : null}
         </div>
       </Subcontainer>
     </Container>

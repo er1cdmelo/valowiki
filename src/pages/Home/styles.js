@@ -43,7 +43,7 @@ export const Subcontainer = styled.div`
     margin: 1.5em 0;
     overflow-x: scroll;
     overflow: hidden;
-    padding-bottom: 10px 0;
+    padding: 0 2px 0;
 
     /* Customize scroll bar */
     ::-webkit-scrollbar {
@@ -112,11 +112,19 @@ export const Subcontainer = styled.div`
     @media (max-width: 1030px) {
         overflow-x: scroll;
     }
+
+    #mapCard {
+        
+        height: 100%;
+
+        img {
+            height: 100%;
+        }
+    }
 `;
 
 export const Card = styled.div`
-    max-height: 90%;
-    min-height: 90%;
+    height: 90%;
     max-width: 100%;
     border-radius: 15px;
     border: 2px solid #fff;

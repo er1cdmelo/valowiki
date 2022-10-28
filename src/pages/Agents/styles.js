@@ -9,6 +9,10 @@ export const Container = styled.div`
     align-items: center;
     position: relative;
 
+    a {
+        text-decoration: none;
+    }
+
     /* Create a media query for 457px */
     @media (max-width: 457px) {
         padding: 0 1em;

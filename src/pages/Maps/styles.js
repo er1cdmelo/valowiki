@@ -12,6 +12,10 @@ export const Container = styled.div`
         color: #fff;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     .title {
         width: 100%;
         margin: 1.5em 0;

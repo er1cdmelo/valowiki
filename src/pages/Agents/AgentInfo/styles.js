@@ -18,6 +18,11 @@ export const Container = styled.div`
     min-height: 100vh;
     overflow: hidden;
 
+    /* create a media query for mobile devices */
+    @media (max-width: 768px) {
+      padding: 2em 1em;
+    }
+
     .main-info {
       width: 100%;
       min-height: 100vh;
@@ -40,6 +45,22 @@ export const Container = styled.div`
         justify-content: flex-start;
         color: #fff;
         z-index: 2;
+
+        .play {
+          padding: .2em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #fff;
+          border-radius: 50%;
+          border: none;
+          cursor: pointer;
+          font-size: 1.3em;
+
+          &:hover {
+            background: #f5f5f5;
+          }
+        }
 
         img {
           width: 100px;
@@ -121,7 +142,7 @@ export const Container = styled.div`
           flex-wrap: wrap;
 
           .skill_card {
-            min-height: 480px;
+            
             max-width: 340px;
             min-width: 200px;
             display: flex;
@@ -131,7 +152,21 @@ export const Container = styled.div`
             gap: 0.5em;
             background: rgba(34, 34, 34, 0.71);
             border-radius: 15px;
-            padding: 1em 0.5em;
+            padding: 1em .5em 2em;
+            animation: card 0.5s ease-in-out;
+            
+            /* create a animation for the card */
+            /* create a keyframe for the animation */
+            @keyframes card {
+              0% {
+                opacity: 0;
+                transform: translateY(100px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
 
             @media (max-width: 700px) {
               min-height: 350px;
@@ -140,6 +175,7 @@ export const Container = styled.div`
 
               font-size: 0.8em;
             }
+
 
             @media (max-width: 550px) {
               max-width: 100%;

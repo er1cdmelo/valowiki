@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Grid, Card } from "./styles";
 import BackButton from "../../components/BackButton/BackButton";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Maps = () => {
   const [maps, setMaps] = useState([]);
@@ -31,16 +31,14 @@ const Maps = () => {
       </div>
       <Grid>
         {maps.length
-          ? (maps.map((m) =>
-              (
+          ? maps.map((m) => (
+              <Link to={`/map/${m.uuid}`}>
                 <div class="card_container">
-                  <Card img={m.splash}>
-                    
-                  </Card>
+                  <Card img={m.splash}></Card>
                   <h3>{m.displayName}</h3>
                 </div>
-              )
-          ))
+              </Link>
+            ))
           : null}
       </Grid>
     </Container>
