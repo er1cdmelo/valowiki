@@ -6,16 +6,25 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 3em;
+  padding: 3.5em 3em;
+
+  button {
+    top: 3%;
+    
+  }
 
   /* create a media query for mobile devices */
     @media (max-width: 650px) {
         padding: 2em 1em;
         justify-content: space-evenly;
         gap: 1em;
+
+        button {
+          left: 1em;
+        }
     }
 `;
 
@@ -25,6 +34,10 @@ export const FirstInfo = styled.div`
   width: 100%;
   min-height: 50vw;
   color: #fff;
+
+  h1 {
+    margin: 0;
+  }
 
   span {
     display: flex;

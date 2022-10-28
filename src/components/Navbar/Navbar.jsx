@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Link to='/'><img src={Logo} alt="Logo" /></Link>
-      <LanguageSelect onSelect={handleLanguageChange} languages={languages} selectedLanguage='pt-BR'/>  
+      <LanguageSelect onSelect={handleLanguageChange} languages={languages} selectedLanguage='en-US'/>  
     </Nav>
   )
 }
